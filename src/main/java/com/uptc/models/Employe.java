@@ -1,15 +1,26 @@
 package com.uptc.models;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
+
 @Entity
 @Table(name = "EMPLOYEES")
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class Employe implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -25,62 +36,6 @@ public class Employe implements Serializable {
     private String lastname;
 
     @Column(name = "birthDate")
-    private Date birthDate;
-
-    public Employe() {
-    }
-
-    public Employe(long id, String firstname, String lastname, Date birthDate) {
-        this.id = id;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.birthDate = birthDate;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getFirstname() {
-        return firstname;
-    }
-
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-
-   
-
-    @Override
-    public String toString() {
-        return "Employe [birthDate=" + birthDate + ", firstname=" + firstname + ", id=" + id + ", lastname=" + lastname
-                + "]";
-    }
-
-    /**
-     * @return the birthDate
-     */
-    public Date getBirthDate() {
-        return birthDate;
-    }
-
-    /**
-     * @param birthDate the birthDate to set
-     */
-    public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
-    }
+    private LocalDate birthDate;
 
 }
